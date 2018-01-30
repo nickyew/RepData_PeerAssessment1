@@ -34,7 +34,7 @@ g <- ggplot(totalsteps, aes(x=factor(date), y=steps))
 
 g + geom_bar(stat="identity") + 
     labs(x="Date", y=expression("Total Steps")) + 
-    labs(title=expression("")) + 
+    #labs(title=expression("")) + 
     theme(axis.text.x=element_text(color = "black", size=7, angle=90, vjust=.8, hjust=0.8))
 ```
 
@@ -42,7 +42,7 @@ g + geom_bar(stat="identity") +
 ```{r histogram of steps per day - 2}
 
 hist(totalsteps$steps,
-     main = "Histogram of total steps per day",
+     #main = "Histogram of total steps per day",
      xlab = "Steps",
      ylab = "Number of totals in range",
      col = terrain.colors(5),
@@ -65,8 +65,9 @@ Median_Steps = round(median(totalsteps$steps, na.rm = TRUE))
 steps_by_interval <- aggregate(steps ~ interval, data, mean)
 plot(steps_by_interval$interval, steps_by_interval$steps, 
      type = "l", lwd = 1.5, 
-     xlab = "Interval", ylab = "Mean number of steps",
-     main = "Time series plot of the average number of steps taken")
+     xlab = "Interval", ylab = "Mean number of steps"
+     #main = "Time series plot of the average number of steps taken"
+)
 ```
 
 ###Part 5: The 5-minute interval that, on average, contains the maximum number of steps
@@ -110,11 +111,11 @@ g <- ggplot(totalstepsNew, aes(x=factor(date), y=steps))
 
 g + geom_bar(stat="identity") + 
     labs(x="Date", y=expression("Total Steps")) + 
-    labs(title=expression("Histogram of total steps per day")) + 
+    #labs(title=expression("Histogram of total steps per day")) + 
     theme(axis.text.x=element_text(color = "black", size=7, angle=90, vjust=.8, hjust=0.8))
 
 hist(totalstepsNew$steps,
-     main = "Histogram of total steps per day",
+     #main = "Histogram of total steps per day",
      xlab = "Steps",
      ylab = "Number of totals in range",
      col = terrain.colors(5),
@@ -182,12 +183,12 @@ for (i in 1:nrow(dfwd)) {
 
 par(mfrow=c(3,1))
 
-plot(dfwd$interval, dfwd$mean, type="l", col = "red", xlab = "Interval", ylab = "Mean Steps", main = "Weekday Trend")
-plot(dfwe$interval, dfwe$mean, type="l", col = "blue", xlab = "Interval", ylab = "Mean Steps", main = "Weekend Trend")
+plot(dfwd$interval, dfwd$mean, type="l", col = "red", xlab = "Interval", ylab = "Mean Steps")
+plot(dfwe$interval, dfwe$mean, type="l", col = "blue", xlab = "Interval", ylab = "Mean Steps")
 
-plot(dfwd$interval, dfwd$mean, type="l", col="red", xlab = "Interval", ylab = "Mean Steps", main = "Combined Plot")
+plot(dfwd$interval, dfwd$mean, type="l", col="red", xlab = "Interval", ylab = "Mean Steps")
 points(dfwe$interval, dfwe$mean, type="l", col="blue")
 ```
 
-**Q: Are there differences in activity patterns between weekdays and weekends?**    
+**Q: Are there differences in activity patterns between weekdays and weekends?**  
 **A: **There is a third plot that combines the two into the same plot. From this plot, we can see that there is some differences in the activity patters. 1. In weekdays (red), we can see more activity in the mornings and starts earlier while activity levels drop as the day passes. In weekends, there is less activity in the morning but increases as the day passes.
