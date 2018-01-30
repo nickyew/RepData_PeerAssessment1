@@ -11,14 +11,7 @@ Downloading, extracting and loading the data into variable "data"
 
 ```r
 library(ggplot2)
-library(htmlTable)
-```
 
-```
-## Warning: package 'htmlTable' was built under R version 3.4.3
-```
-
-```r
 zipfile <- "activity.zip"
 filename <- "activity.csv"
 
@@ -46,7 +39,7 @@ g + geom_bar(stat="identity") +
     theme(axis.text.x=element_text(color = "black", size=7, angle=90, vjust=.8, hjust=0.8))
 ```
 
-![](PA1_template_files/figure-html/histogram of steps per day - 1-1.png)<!-- -->
+![](PA1_template_files/figure-html/Histogram_of_steps_per_day_-_1-1.png)<!-- -->
 
 ###Part 2 Version 2: Included below a histogram as well
 
@@ -61,7 +54,7 @@ hist(totalsteps$steps,
 )
 ```
 
-![](PA1_template_files/figure-html/histogram of steps per day - 2-1.png)<!-- -->
+![](PA1_template_files/figure-html/Histogram_of_steps_per_day_-_2-1.png)<!-- -->
 
 ###Part 3: Mean and median number of steps taken each day
 
@@ -82,7 +75,7 @@ plot(steps_by_interval$interval, steps_by_interval$steps,
      main = "Time series plot of the average number of steps taken")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-1-1.png)<!-- -->
+![](PA1_template_files/figure-html/Times_Series_Plot-1.png)<!-- -->
 
 ###Part 5: The 5-minute interval that, on average, contains the maximum number of steps
 
@@ -132,7 +125,7 @@ g + geom_bar(stat="identity") +
     theme(axis.text.x=element_text(color = "black", size=7, angle=90, vjust=.8, hjust=0.8))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
+![](PA1_template_files/figure-html/Histogram_After_Imputing_Missing_Values-1.png)<!-- -->
 
 ```r
 hist(totalstepsNew$steps,
@@ -145,7 +138,7 @@ hist(totalstepsNew$steps,
 )
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-2-2.png)<!-- -->
+![](PA1_template_files/figure-html/Histogram_After_Imputing_Missing_Values-2.png)<!-- -->
 
 ```r
 Mean_StepsNew = round(mean(totalstepsNew$steps, na.rm = TRUE))
@@ -164,9 +157,9 @@ Steps Type    | Original                       | With Imputed Values            
 Mean Steps    | 10767   | 10581    | -1.73% 
 Median Steps  | 10766 | 10395  | -3.45%
 
-**Q:  Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?**
+Q:  Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 
-**A: **From the algorithm of imputing the missing values, there did not seem to be a big impact of these missing values. (See the comparison table above)
+A: From the algorithm of imputing the missing values, there did not seem to be a big impact of these missing values. (See the comparison table above)
 
 ###Part 8: Panel plot comparing the average number of steps taken per 5-minute interval across weekdays and weekends
 
@@ -217,7 +210,7 @@ plot(dfwd$interval, dfwd$mean, type="l", col="red", xlab = "Interval", ylab = "M
 points(dfwe$interval, dfwe$mean, type="l", col="blue")
 ```
 
-![](PA1_template_files/figure-html/part 8-1.png)<!-- -->
+![](PA1_template_files/figure-html/Panel_Plot_Comparing_Weekdays_Weekends-1.png)<!-- -->
 
-**Q: Are there differences in activity patterns between weekdays and weekends?**    
-**A: **There is a third plot that combines the two into the same plot. From this plot, we can see that there is some differences in the activity patters. 1. In weekdays (red), we can see more activity in the mornings and starts earlier while activity levels drop as the day passes. In weekends, there is less activity in the morning but increases as the day passes.
+Q: Are there differences in activity patterns between weekdays and weekends?    
+A: There is a third plot that combines the two into the same plot. From this plot, we can see that there is some differences in the activity patters. 1. In weekdays (red), we can see more activity in the mornings and starts earlier while activity levels drop as the day passes. In weekends, there is less activity in the morning but increases as the day passes.
